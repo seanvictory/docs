@@ -1,0 +1,43 @@
+---
+description: Connect to your users' app accounts with the Connect Portal
+---
+
+# Displaying the Connect Portal
+
+Once an integration has been added to the Paragon dashboard, you can now display the Connect Portal for that integration in your application. The **Connect Portal** is a component that your users interact with to connect their third-party app accounts to your application. The Connect Portal provides a **fully managed authentication** so you don't need to worry about managing, storing, or refreshing your customers' credentials.
+
+## Activating the Integration
+
+You'll need to mark your integration as `active` for it to display to your end users. To do this, just click the "Inactive" button in the top-right corner and press "Activate".
+
+<figure><img src="../.gitbook/assets/Activating an Integration in Paragon Connect.gif" alt=""><figcaption></figcaption></figure>
+
+## Displaying the Connect Portal in your app
+
+[`.authenticate`](../api/api-reference/#authenticate-projectid-string-usertoken-string) should be called at the beginning of your application's lifecycle in all cases. This is to make sure that the `userToken` is always as fresh as possible, with respect to your user's existing session on your own site. You may reference [Installing the Connect SDK](installing-the-connect-sdk.md#setup) for a detailed explanation on how to use [`.authenticate`](../api/api-reference/#authenticate-projectid-string-usertoken-string).&#x20;
+
+**Example:**
+
+```javascript
+await paragon.authenticate(
+	// You can find your project ID in the Overview tab of any Integration
+	"38b1f170-0c43-4eae-9a04-ab85325d99f7",
+
+	// See Setup for how to encode your user token
+	"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ey..."
+);
+```
+
+Once [`.authenticate`](../api/api-reference/#authenticate-projectid-string-usertoken-string) has been called and the Promise it returns has resolved, you can call [`.connect`](../api/api-reference/#connect-integrationtype-string) to launch your Connect Portal for a specific integration provider. You can find the `integrationType` identifier you need in the Overview page for the integration.
+
+**Example:**
+
+```javascript
+paragon.connect("salesforce");
+```
+
+You _must_ have an integration configured of this `integrationType` for the Portal to appear. Otherwise, this function does nothing.
+
+![](<../.gitbook/assets/Connect Portal in an application (1).png>)
+
+Once your user connects their third-party app account in the Connect Portal, you can access their app account by creating Workflows or via the [Paragon API](../api/making-api-requests.md). You can always call [`.getUser`](../api/api-reference/#getuser-paragonuser) to retrieve the currently authenticated user and their connected integration state.

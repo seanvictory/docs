@@ -1,0 +1,23 @@
+---
+description: Go from 0 to 1 by building and connecting to your first integration on Paragon
+---
+
+# Introduction
+
+### What you'll build
+
+In this guide, we'll walk you through installing the Paragon SDK, setting up your first integration, and authenticating your first Connected User.
+
+This guide will show you how to:
+
+1. Add Paragon to your application
+2. Create a new Integration
+3. Authenticate a user's app account
+4. Access the user's app account via the Paragon API
+
+### Before getting started
+
+To get the most out of this guide, you'll need:
+
+* A [Paragon ](https://app.useparagon.com/signup)account.
+* A developer app from a third-party app that Paragon supports. Reach out if you need help setting up a developer app for development.
