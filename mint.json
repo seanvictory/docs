@@ -67,6 +67,11 @@
       "name": "Changelog",
       "icon": "bolt",
       "url": "https://changelog.useparagon.com/"
+    },
+    {
+      "name": "Hosted Demo Environment",
+      "icon": "bolt",
+      "url": "https://demo.useparagon.com/"
     }
   ],
   "versions": ["Paragon","Paragon Automate"],
