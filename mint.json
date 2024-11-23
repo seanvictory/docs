@@ -1,31 +1,52 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Paragon",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/light.svg",
+    "href": "https://www.useparagon.com/"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#6645e6",
+    "light": "#6747e7",
+    "dark": "#6645e6",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#6645e6",
+      "to": "#6747e7"
     }
   },
+  "background": {"style": "grid" },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Sign up",
+      "url": "https://dashboard.useparagon.com/signup"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Book a demo",
+    "url": "https://www.useparagon.com/book-demo",
+    "arrow": false
+  },
+  "font":{
+    "headings": {
+      "family": "Helvetica Now Display Medium",
+      "url": "https://framerusercontent.com/assets/OKeqk0lRqQ5xtPOYZPiID295g.woff2",
+      "format": "woff2",
+      "weight": 400
+    }
   },
   "tabs": [
+    {
+      "name": "Documentation",
+      "url": "getting-started",
+      "version": "Paragon"
+    },
+    {
+      "name": "Documentation",
+      "url": "automate",
+      "version": "Paragon Automate"
+    },
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -33,43 +54,60 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://www.useparagon.com/blog"
+    },
+    {
+      "name": "Status",
+      "icon": "gear",
+      "url": "https://status.useparagon.com/"
+    },
+    {
+      "name": "Changelog",
+      "icon": "bolt",
+      "url": "https://changelog.useparagon.com/"
     }
   ],
+  "versions": ["Paragon","Paragon Automate"],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Paragon",
+      "version": "Paragon",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "getting-started/home",
+        "getting-started/external-link-0",
+        "getting-started/external-link-1",
+        "getting-started/external-link-2",
+        "getting-started/demo"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Getting Started",
+      "version": "Paragon",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "getting-started/introduction",
+        "getting-started/installing-the-connect-sdk",
+        "getting-started/adding-an-integration",
+        "getting-started/displaying-the-connect-portal"
+      ]
+    },
+    {
+      "group": "",
+      "version": "Paragon Automate",
+      "pages": ["automate/automate"]
+    },
+    {
+      "group": "Getting Started",
+      "version": "Paragon Automate",
+      "pages": [
+        "automate/getting-started/faq",
+        "automate/getting-started/external-link-0"
       ]
     },
     {
       "group": "API Documentation",
+      "version": "Paragon Automate",
       "pages": [
         "api-reference/introduction"
       ]
@@ -82,10 +120,5 @@
         "api-reference/endpoint/delete"
       ]
     }
-  ],
-  "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
+  ]
 }
