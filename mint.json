@@ -98,6 +98,18 @@
       ]
     },
     {
+      "group": "Connect Portal",
+      "version": "Paragon",
+      "pages": [
+        "connect-portal/connect-portal-customization",
+        "connect-portal/displaying-workflows",
+        "connect-portal/workflow-permissions",
+        "connect-portal/workflow-user-settings",
+        "connect-portal/field-mapping",
+        "connect-portal/headless-connect-portal"
+      ]
+    },
+    {
       "group": "",
       "version": "Paragon Automate",
       "pages": ["automate/automate"]
