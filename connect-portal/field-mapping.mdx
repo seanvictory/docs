@@ -1,0 +1,38 @@
+---
+title: "Field Mapping"
+description: Use a Field Mapping User Setting to allow your users to define a mapping between objects in your application and their integration.
+---
+
+A **Field Mapping** is a type of User Setting that allows your users to define a mapping between an object in your application (an "Application Object") and an object in their connected integration account (an "Integration Object").
+
+## Overview
+
+For example: let's say your integration needs to sync your user's Task records from your application to their Tasks in a Salesforce account.
+
+To do that, you'll need to build up a **Mapping** between fields in your application's Tasks and fields for a Task in a connected Salesforce account, as illustrated below:
+
+<Figure src="../.gitbook/assets/field-mapping-example.png" caption="Example of field mapping between application and Salesforce" />
+
+## Creating a Field Mapping
+
+To create a Field Mapping User Setting, follow these steps:
+
+1. Navigate to the **Configuration** tab of the Customize Connect Portal screen for your integration.
+2. Click on **Add Setting** and select **Field Mapping**.
+3. Configure the Field Mapping settings, including the Application Object and Integration Object.
+
+<Info>
+You can add multiple Field Mappings to a single integration if needed.
+</Info>
+
+## Using Field Mappings in Workflows
+
+Once you've created a Field Mapping, you can use the mapped fields in your workflows. The mapped fields will be available as variables in the Variable Menu when configuring workflow steps.
+
+<Hint>
+Make sure to test your Field Mappings thoroughly to ensure that data is being synced correctly between your application and the connected integration.
+</Hint>
+
+<ContentRef url="workflow-user-settings.md">
+Learn more about adding and configuring User Settings.
+</ContentRef>

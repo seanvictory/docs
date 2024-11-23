@@ -1,10 +1,9 @@
 ---
+title: Headless Connect Portal
 description: >-
   Bring your existing components or design system into your Paragon integrations
   experience with the Headless Connect Portal.
 ---
-
-# Headless Connect Portal
 
 If your app already uses a component library or design system, you may opt to use the Headless Connect Portal, which allows you to connect to your users' integration accounts with a custom user interface. The Headless Connect Portal provides a **fully managed authentication** so you don't need to worry about managing, storing, or refreshing your customers' credentials.
 
@@ -19,13 +18,13 @@ The SDK includes 4 main functions that allow you to use the Headless Connect Por
 
 ## Demo
 
-<figure><img src="../.gitbook/assets/Kapture 2022-11-16 at 13.06.56.gif" alt=""><figcaption><p>A demo implementation of the Headless Connect Portal, using Material UI components and the Paragon SDK</p></figcaption></figure>
+<Figure src="../.gitbook/assets/Kapture 2022-11-16 at 13.06.56.gif" caption="A demo implementation of the Headless Connect Portal, using Material UI components and the Paragon SDK" />
 
 This demo is created based on our tutorial to [build an in-app Integrations Catalog](../tutorials/building-an-in-app-integrations-catalog.md), adapted to use the Headless Connect Portal to show a custom UI to connect your users' integration accounts.
 
 The repository with the completed code is available [here](https://github.com/useparagon/paragon-integrations-catalog-tutorial/tree/headless):
 
-{% embed url="https://github.com/useparagon/paragon-integrations-catalog-tutorial/tree/headless" %}
+https://github.com/useparagon/paragon-integrations-catalog-tutorial/tree/headless
 
 ## Usage
 
@@ -35,7 +34,7 @@ Once you have a list of integrations displaying in your app, you can use this UI
 
 ### Displaying Integration Metadata
 
-<figure><img src="../.gitbook/assets/image (58).png" alt=""><figcaption><p>Displaying integration metadata in a Headless Connect Portal, with Material UI</p></figcaption></figure>
+<Figure src="../.gitbook/assets/image (58).png" caption="Displaying integration metadata in a Headless Connect Portal, with Material UI" />
 
 To display an integration's metadata, use [`.getIntegrationMetadata`](https://docs.useparagon.com/api/api-reference#.getintegrationmetadata), passing the `integrationType` as the first argument. This will return an object with the matching integration's display metadata:
 
@@ -90,7 +89,7 @@ We recommend including:
 
 ### Connecting Accounts
 
-<figure><img src="../.gitbook/assets/image (66).png" alt=""><figcaption><p>Adding a "Connect" button to a Headless Connect Portal</p></figcaption></figure>
+<Figure src="../.gitbook/assets/image (66).png" caption="Adding a 'Connect' button to a Headless Connect Portal" />
 
 To add a **Connect** button to the Headless Connect Portal and prompt the user to connect an integration account on click, use the `.installIntegration` function.
 
@@ -104,15 +103,15 @@ To add a **Connect** button to the Headless Connect Portal and prompt the user t
 
 Once this is added, your Integrations Catalog will show the integration authorization when the **Connect** button is clicked.
 
-<figure><img src="../.gitbook/assets/Kapture 2022-11-16 at 11.12.40.gif" alt=""><figcaption></figcaption></figure>
+<Figure src="../.gitbook/assets/Kapture 2022-11-16 at 11.12.40.gif" caption="" />
 
-{% hint style="info" %}
+<Info>
 **Note**: Integrations that require text-based credentials (i.e. not OAuth) _and_ integrations that require some information prior to starting the OAuth flow will briefly show the Connect Portal.
-{% endhint %}
+</Info>
 
 ### Displaying Account State
 
-<figure><img src="../.gitbook/assets/image (77).png" alt=""><figcaption><p>Displaying the Connect/Disconnect button dynamically based on account state</p></figcaption></figure>
+<Figure src="../.gitbook/assets/image (77).png" caption="Displaying the Connect/Disconnect button dynamically based on account state" />
 
 To add logic to your Headless Connect Portal to stay in sync with your user's account state, we can use `.getUser` and `.subscribe`.
 
@@ -178,7 +177,7 @@ function ConnectButton({ integrationType }) {
 
 If you are already using the [`useParagonAuth` hook from the tutorial](../tutorials/building-an-in-app-integrations-catalog.md), the returned `user` object will automatically stay up-to-date by subscribing to `onInstallIntegration` and `onUninstallIntegration` events from the SDK, as shown below:
 
-<figure><img src="../.gitbook/assets/Kapture 2022-11-16 at 13.06.56.gif" alt=""><figcaption></figcaption></figure>
+<Figure src="../.gitbook/assets/Kapture 2022-11-16 at 13.06.56.gif" caption="" />
 
 If you are not using the `useParagonAuth` hook and are unable to, you can call `paragon.subscribe` on your own to receive updates, as demonstrated below:
 

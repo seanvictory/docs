@@ -42,6 +42,7 @@
       "url": "getting-started",
       "version": "Paragon"
     },
+    // TODO: I'd like to be able to have the top be a home page that doesn't have a URL.
     {
       "name": "Documentation",
       "url": "automate",
