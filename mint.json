@@ -98,6 +98,15 @@
       ]
     },
     {
+      "group": "Security",
+      "version": "Paragon",
+      "pages": [
+        "security/gdqr",
+        "security/security",
+        "security/sla"
+      ]
+    },
+    {
       "group": "Connect Portal",
       "version": "Paragon",
       "pages": [

@@ -1,0 +1,77 @@
+
+---
+description: Paragon's security practices and change management procedures.
+---
+
+# Security
+
+## Overview
+
+This document outlines [Paragon's](https://www.useparagon.com/) security practices and architecture.
+
+### Contact
+
+- **Chief Technology Officer:** Ishmael Samuel ([ishmael@useparagon.com](mailto:ishmael@useparagon.com))
+- **Data Protection Officer:** Ishmael Samuel ([ishmael@useparagon.com](mailto:ishmael@useparagon.com))
+- **Support:** [support@useparagon.com](mailto:support@useparagon.com)
+- **Privacy:** [privacy@useparagon.com](mailto:privacy@useparagon.com)
+
+### Other Resources
+
+- [Privacy Policy](https://www.useparagon.com/privacy)
+- [Terms of Service](https://www.useparagon.com/terms-of-service)
+
+## Policy Compliance
+
+### Data Protection Agreement
+
+We have a Data Protection Agreement (DPA) that outlines our obligations and procedures. Customers can request it by emailing [privacy@useparagon.com](mailto:privacy@useparagon.com). Details are in our [GDPR documentation](gdpr.md).
+
+### Policy Coverage
+
+- Third-Party Connectivity
+- Data Privacy
+- Access Control
+- Encryption Standards
+
+## Security Practices
+
+### Physical and Environmental Security
+
+Our data is stored in AWS Cloud. Access logs are maintained in AWS CloudWatch. Incoming traffic is logged for security.
+
+### Access to Data
+
+We maintain separate AWS accounts for sandbox and live environments. Access to the live environment requires additional authentication, including a whitelisted IP.
+
+### Data Storage & Encryption
+
+Third-party credentials are stored in a distributed vault, with encryption keys stored separately. Sensitive information like emails and passwords are never logged.
+
+### Security and Staff Training
+
+New employees follow the principle of least privilege, and training includes tools, best practices, and incident response plans.
+
+## Change Management
+
+Changes are handled via a continuous delivery system with automated tests and manual reviews by the CTO. All changes are logged.
+
+## Incident Management
+
+### Incident Response
+
+Incidents are prioritized as P0 and resolved promptly. Documentation includes post-mortem reports shared with affected users if necessary.
+
+### Security Incidents
+
+Security breaches are addressed immediately, and impacted users are informed within one business day.
+
+## Whitelisting IPs
+
+Paragon IP addresses:
+- `18.205.92.162`
+- `18.215.215.164`
+- `34.225.59.94`
+- `44.210.155.28`
+- `52.45.12.206`
+- `54.235.127.238`
