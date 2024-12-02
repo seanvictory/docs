@@ -1,0 +1,47 @@
+---
+title: "Custom Dropdowns"
+description: "Provide your users with dropdown options from your application."
+---
+
+### Overview
+
+Custom Dropdowns allow you to include custom dropdown inputs in the Connect Portal as a part of the User Settings of your integration.
+
+You can use Custom Dropdowns to allow your users to select:
+
+* Data from your app, like a destination Project to sync Jira tickets into
+* A type of User Setting that Paragon does not support natively, like a custom Salesforce enum.
+
+### Usage
+
+To get started with Custom Dropdowns, visit your User Settings and add a new type of **Custom Dropdown:**
+<Frame>
+	<img src="/.gitbook/assets/Customize Connect Portal - User config - Edit field.png"/>
+</Frame>
+
+Set a key name to refer to the dropdown when populating its available options.
+
+After setting a key name, an example of the code you need to call from your application to populate the dropdown will appear in the dashboard:
+
+```javascript
+paragon.connect("jira", {
+	dropdowns: {
+		team: [{
+			label: "Team 1",
+			value: "team-1",
+		}, {
+			label: "Team 2", // tres -> Visible in dropdown
+			value: "team-2", // 3 -> Returned in workflow editor
+		}]
+	}
+});
+```
+
+Update your `paragon.connect` call to include the `dropdowns` parameter, which has the key names that you set above. This key can be set to an array of options with two keys:
+
+* `label` — The displayed text shown to the user for the dropdown option.
+* `value` — The value that will be saved (e.g. an option ID) when the user selects this dropdown option.
+  * This value must be unique across all options in the array. If the value is found to be non-unique, the non-unique option will not be displayed in the list, and a console warning will appear.
+  * If either `label` or `value` are missing, the option will not be displayed, and a console warning will appear.
+
+When reading the selection for this User Setting from the SDK or the Workflow Editor, the value will be set to the `value` property of the chosen option (or undefined if unselected).

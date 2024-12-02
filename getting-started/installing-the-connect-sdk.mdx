@@ -13,7 +13,7 @@ npm install @useparagon/connect
 
 The SDK can be imported in your client-side JavaScript files as a module:
 
-```bash
+```typescript
 import { paragon } from '@useparagon/connect';
 ```
 
@@ -21,7 +21,7 @@ import { paragon } from '@useparagon/connect';
 
 If you are using an on-prem/single-tenant instance of Paragon, you can call the `.configureGlobal` function to point the SDK to use the base hostname of your Paragon instance.
 
-```js
+```typescript
 import { paragon } from '@useparagon/connect';
 
 // If your login URL is https://dashboard.mycompany.paragon.so:
@@ -63,7 +63,7 @@ To generate a Signing Key, go to **Settings > SDK Setup** in your Paragon dashbo
 
 For security reasons, we don’t store your Private Key and cannot show it to you again, so we recommend you download the key and store it someplace secure.
 <Frame>
-  <img src="/images/sdk-1.avif"/>
+  <img src="/.gitbook/assets/Generating-a-Signing-Key-in-Paragon-Connect.png"/>
 </Frame>
 #### 2. Generate a Paragon User Token
 
@@ -158,7 +158,7 @@ The `paragon.authenticate` function is Promiseable and resolves when the SDK has
 
 You can set up managed authentication for your Paragon project by navigating to **Settings > SDK Setup** and selecting a provider.
 <Frame>
-  <img src="/images/sdk-2.avif"/>
+  <img src="/.gitbook/assets/Generating-a-Signing-Key-in-Paragon-Connect.png"/>
 </Frame>
 Since Paragon uses a JSON Web Token (JWT) to encode and validate user identity, many managed services will already have a token that you can pass directly to Paragon.
 
@@ -167,7 +167,7 @@ Since Paragon uses a JSON Web Token (JWT) to encode and validate user identity, 
     You'll need to provide Paragon with your **Firebase Project ID**, which you can find in the Firebase Console.
 
   <Frame>
-    <img src="/images/sdk-3.avif"/>
+    <img src="/.gitbook/assets/Adding-Firebase-Authentication-to-paragon-Connect.png"/>
   </Frame>
     The Firebase ID token can be used directly as the Paragon User Token.
 
@@ -185,7 +185,7 @@ Since Paragon uses a JSON Web Token (JWT) to encode and validate user identity, 
     If you have a domain alias for your tenant domain, use the domain alias instead.
 
     <Frame>
-    <img src="/images/sdk-4.avif"/>
+    <img src="/.gitbook/assets/Adding-Auth0-Authentication-to-Paragon-Connect.png"/>
   </Frame>
 
   The Auth0 ID token can be used directly as the Paragon User Token.

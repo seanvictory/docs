@@ -1,0 +1,31 @@
+---
+title: Concurrency SLA
+description: Learn how concurrency is calculated in Paragon.
+---
+
+Paragon's concurrency SLA is the number of [step executions](../monitoring/viewing-task-history.md#detailed-task-execution) that can run at a given time across all of your [Connected Users](connected-users.md). For example, if you have a concurrency SLA of 20, you can have up to 20 step executions running in the background at a given time.
+
+<Frame>
+  <img src="/.gitbook/assets/Viewing Task History in Paragon Connect.png"/>
+</Frame>
+
+### Concurrency Levels
+
+Our Concurrency SLA for our standard plans is as follows:
+
+| Plan | Concurrency SLA |
+| --- | --- |
+| **Trial** | **5** step executions |
+| **Pro** | **20** step executions |
+| **Enterprise** | **50** step executions |
+
+If you have any other questions regarding your concurrency SLA, please contact your Customer Success Manager.
+
+### What happens if I reach my Concurrency SLA?
+
+When you exceed this SLA, new step executions will be queued up for execution. Paragon accepts and stores all executions and will only execute them once the concurrent workflows drop below the SLA limit.
+
+
+<Info>
+  To upgrade your Paragon subscription to a higher usage tier for concurrent workflows, [contact Sales](mailto:sales@useparagon.com) or reach out to your Customer Success Manager.
+</Info>
