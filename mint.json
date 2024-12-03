@@ -57,6 +57,11 @@
       "name": "Changelog",
       "icon": "bolt",
       "url": "changelog"
+    },
+    {
+      "name": "Hosted Demo Enviorment",
+      "icon": "browser",
+      "url": "https://demo.useparagon.com"
     }
   ],
   "navigation": [
@@ -98,7 +103,8 @@
     {
       "group": "Test",
       "pages": [
-        "changelog"
+        "changelog",
+        "tutorials/testing"
       ]
     },
     {
