@@ -39,8 +39,7 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference",
-      "openapi": "/paragon_openapi.json"
+      "url": "api-reference"
     }
   ],
   "anchors": [
