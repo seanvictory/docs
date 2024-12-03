@@ -40,7 +40,7 @@
     {
       "name": "API Reference",
       "url": "api-reference",
-      "openapi": "/paragon_openapi.json"
+      "openapi": "paragon_openapi.json"
     }
   ],
   "anchors": [
