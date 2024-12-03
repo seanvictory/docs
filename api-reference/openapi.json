@@ -1,195 +1,286 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.3",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "1.0.0"
+      "title": "Paragon API",
+      "description": "OpenAPI specification for various Paragon API endpoints.",
+      "version": "1.0.0"
   },
   "servers": [
-    {
-      "url": "http://sandbox.mintlify.com"
-    }
-  ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
+      {
+          "url": "https://api.useparagon.com/projects/{projectId}/sdk",
+          "variables": {
+              "projectId": {
+                  "description": "The ID of your Paragon project.",
+                  "default": "your-project-id"
+              }
+          }
+      }
   ],
   "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
+      "/workflows/{workflowId}": {
+          "delete": {
+              "summary": "Disable a workflow",
+              "description": "Disables the specified workflow.",
+              "parameters": [
+                  {
+                      "name": "workflowId",
+                      "in": "path",
+                      "required": true,
+                      "description": "ID of the workflow to disable.",
+                      "schema": {
+                          "type": "string"
+                      }
                   }
-                }
+              ],
+              "security": [
+                  {
+                      "BearerAuth": []
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Workflow disabled successfully."
+                  }
               }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           }
-        }
       },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+      "/metadata": {
+          "get": {
+              "summary": "Get Integration Metadata",
+              "description": "Retrieves metadata for available integrations.",
+              "security": [
+                  {
+                      "BearerAuth": []
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Integration metadata retrieved successfully.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "object",
+                                      "properties": {
+                                          "type": {
+                                              "type": "string"
+                                          },
+                                          "name": {
+                                              "type": "string"
+                                          },
+                                          "brandColor": {
+                                              "type": "string"
+                                          },
+                                          "icon": {
+                                              "type": "string"
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
               }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           }
-        }
+      },
+      "/me": {
+          "get": {
+              "summary": "Get Connected User",
+              "description": "Retrieves information about the connected user.",
+              "security": [
+                  {
+                      "BearerAuth": []
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Connected user details retrieved.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "object",
+                                  "properties": {
+                                      "authenticated": {
+                                          "type": "boolean"
+                                      },
+                                      "userId": {
+                                          "type": "string"
+                                      },
+                                      "integrations": {
+                                          "type": "object"
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          },
+          "patch": {
+              "summary": "Set User Metadata",
+              "description": "Updates metadata for the connected user.",
+              "security": [
+                  {
+                      "BearerAuth": []
+                  }
+              ],
+              "requestBody": {
+                  "required": true,
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "type": "object",
+                              "properties": {
+                                  "meta": {
+                                      "type": "object"
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "responses": {
+                  "200": {
+                      "description": "Metadata updated successfully."
+                  }
+              }
+          }
+      },
+      "/events/trigger": {
+          "post": {
+              "summary": "Trigger an App Event",
+              "description": "Triggers a specific app event with the given payload.",
+              "security": [
+                  {
+                      "BearerAuth": []
+                  }
+              ],
+              "requestBody": {
+                  "required": true,
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "type": "object",
+                              "properties": {
+                                  "name": {
+                                      "type": "string"
+                                  },
+                                  "payload": {
+                                      "type": "object"
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "responses": {
+                  "200": {
+                      "description": "Event triggered successfully."
+                  }
+              }
+          }
+      },
+      "/integrations": {
+          "get": {
+              "summary": "Get Project Integrations",
+              "description": "Retrieves integrations for the project.",
+              "security": [
+                  {
+                      "BearerAuth": []
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Project integrations retrieved successfully.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "object"
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/credentials": {
+          "get": {
+              "summary": "Get Connected User's Connect Credentials",
+              "description": "Retrieves credentials for the connected user.",
+              "security": [
+                  {
+                      "BearerAuth": []
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Connected user's credentials retrieved.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "object"
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/credentials/{credentialId}": {
+          "patch": {
+              "summary": "Update Connected User's Connect Credentials",
+              "description": "Updates the credentials for the connected user.",
+              "parameters": [
+                  {
+                      "name": "credentialId",
+                      "in": "path",
+                      "required": true,
+                      "description": "ID of the credential to update.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "BearerAuth": []
+                  }
+              ],
+              "requestBody": {
+                  "required": true,
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "type": "object",
+                              "properties": {
+                                  "config": {
+                                      "type": "object"
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "responses": {
+                  "200": {
+                      "description": "Credentials updated successfully."
+                  }
+              }
+          }
       }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   },
-  "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
+  "securitySchemes": {
+      "BearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
       }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
-    }
   }
 }
