@@ -76,7 +76,8 @@
         "getting-started/introduction",
         "getting-started/installing-the-connect-sdk",
         "getting-started/adding-an-integration",
-        "getting-started/displaying-the-connect-portal"
+        "getting-started/displaying-the-connect-portal",
+        "changelog"
       ]
     },
     {
