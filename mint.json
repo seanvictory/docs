@@ -96,6 +96,12 @@
       ]
     },
     {
+      "group": "Test",
+      "pages": [
+        "changelog"
+      ]
+    },
+    {
       "group": "Billing",
       "pages": [
         "billing/connected-users",
