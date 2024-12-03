@@ -2,3 +2,37 @@
 title: "Building an In-App Integrations Catalog"
 description: "In this tutorial, we'll use the Paragon SDK to build an integrations catalog into your app."
 ---
+
+This guide provides an example implementation of building an integrations catalog **into your React app, using TypeScript.** The completed code is available in [this GitHub repository](https://github.com/useparagon/paragon-integrations-catalog-tutorial).
+
+
+
+<Info>
+  The tutorial repository signs Paragon User Tokens in the frontend application, which should NOT be used in production. Replace `getParagonUserToken` with your own app's Paragon User Token generation, which should be performed on your server only.
+</Info>
+
+Alternatively, for a production-ready implementation of the SDK embedded in a Next.js app, see our [Example App](https://github.com/useparagon/paragon-connect-nextjs-example) repository.
+
+## Demo
+
+In this tutorial, we'll build the user interface to display a list of Paragon integrations embedded in your application:
+
+GIF HERE
+
+## Prerequisites
+
+* This guide embeds the Integration Catalog in a React.js app. React is not a requirement for using the SDK, but the tutorial steps will use React-specific functions to dynamically update the Catalog UI.
+
+* This guide assumes that you've already [installed the SDK and configured User Authentication](https://docs.useparagon.com/getting-started/installing-the-connect-sdk). We will change your implementation slightly so that your React app can listen for the SDK events for loading and authenticating.
+
+
+
+<Steps>
+  <Step title="Step 1: Add hooks for authenticating the Paragon User" icon="gear" stepNumber="1">
+
+  </Step>
+
+  <Step title="Step 2">
+
+  </Step>
+</Steps>
