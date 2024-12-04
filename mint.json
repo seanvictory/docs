@@ -16,7 +16,9 @@
       "to": "#6747e7"
     }
   },
-  "background": {"style": "grid" },
+  "background": {
+    "style": "grid"
+  },
   "topbarLinks": [
     {
       "name": "Sign up",
@@ -28,7 +30,7 @@
     "url": "https://www.useparagon.com/book-demo",
     "arrow": false
   },
-  "font":{
+  "font": {
     "headings": {
       "family": "Helvetica Now Display Medium",
       "url": "https://framerusercontent.com/assets/OKeqk0lRqQ5xtPOYZPiID295g.woff2",
@@ -117,7 +119,9 @@
     },
     {
       "group": "Support",
-      "pages": ["support/contacting-support"]
+      "pages": [
+        "support/contacting-support"
+      ]
     },
     {
       "group": "API Documentation",
