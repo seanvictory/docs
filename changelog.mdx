@@ -2,7 +2,65 @@
 title: "Changelog"
 description: "View Paragon's Changes"
 ---
+<Update label="December 2024" description="v3.12">
+### 🚀 New Features
 
+✨ **Google Drive Integration Enhancements!**
+
+You can now save files to and fetch files from shared folders in Google Drive. Paragon enables you to sync data between your app and your users' Google Drive accounts. For example, you can now upload files directly to shared drives or list files within shared folders. These changes also support updates to placeholder text and input fields for a more intuitive experience. Learn more in our [Google Drive API documentation](https://developers.google.com/drive/api/reference/rest/v3/files/create).
+
+✨ **Zero-Config Pagination for Jira!**
+
+You can now connect to your users' Jira accounts with support for Zero-Configuration Pagination (ZCP). This enhancement abstracts Jira's offset-based pagination into a more user-friendly experience. Paragon enables you to process large datasets in Jira without manually configuring pagination. Learn more in our [ZCP Product Spec](https://useparagon.atlassian.net/wiki/spaces/PARAGON/pages/933855358/Zero-Config+Pagination).
+
+✨ **Streamlined Trello Authentication!**
+
+We've removed the display of the API token from the Trello connect portal. This change enhances security by reducing the likelihood of accidental exposure of sensitive credentials.
+
+✨ **Error Visibility for Google Sheets and Google Docs!**
+
+Google Sheets and Google Docs now provide more actionable error messages, helping users quickly understand and resolve issues that arise during workflows.
+
+✨ **Enhanced Error Reporting for Google Analytics GA4 and Google Search Console!**
+
+We've improved error handling for Google Analytics GA4 and Google Search Console integrations. Now, when issues occur, the error messages are more clear and provide actionable guidance for faster troubleshooting.
+
+### 🛠 Improvements
+
+- **Automatic Token Refresh for Key Integrations!** Implements automatic token refresh for Front, ClickUp, Asana, Box, Dropbox, Dropbox Sign, and Xero integrations. This enhancement ensures uninterrupted connectivity and reduces disruptions caused by expired tokens.
+
+- **Smarter Gmail Integration!** Supports pagination for trigger intents, implements rate limits for Gmail triggers, and introduces smart rate limits for non-trigger intents. These enhancements help to optimize performance, reduce API errors, and ensure better handling of large data sets.
+
+- **Field Mapping Enhancements for ServiceNow!** Field mapping for ServiceNow now supports mapping for Trouble Tickets and Cases. This update allows users to customize workflows more precisely when working with ServiceNow data.
+
+- **Enhanced SDK Support!** The Paragon SDK now exposes resource connections, giving developers more control and flexibility in how they manage connections within workflows.
+
+- **Credential Refresh for QuickBooks!** The QuickBooks integration now supports a new credential refresh mechanism, ensuring uninterrupted access and smoother workflows for all QuickBooks actions.
+
+### 🐛 Bug Fixes
+
+* Fixes an issue where Jira Issue Field Values did not correctly deserialize number inputs (like Story Points), causing errors during issue creation. These values now map to their correct data types.
+
+* Fixes QuickBooks search functionality by ensuring filters work correctly and supporting pagination in workflow actions. This update allows smoother navigation and accurate search results for larger datasets.
+
+* Fixes an issue where only custom fields were available in the field mapping for Close CRM. Standard fields are now also available, providing greater flexibility for configuration.
+
+* Fixes an issue where Gmail triggers would sometimes fail due to "internalDate" being undefined. This update ensures smoother, more reliable Gmail triggers.
+
+* Adjusts the OAuth flow for OneDrive to force users to select an account, ensuring the proper account is used for the connection. This change reduces accidental misconfigurations.
+
+* Fixes an issue where the placeholder for dependent inputs would disappear after selecting a parent input. Now, placeholder text remains visible, supporting clearer workflows.
+
+* Removes deprecated LinkedIn API scopes and ensures backward compatibility for existing integrations. This update includes updates to the "getUsers" function to support new API requirements.
+
+* Improves QuickBooks action error messages by removing duplicate information and providing users with actionable feedback for failed actions.
+
+* Fixes an issue where function code editors would become uneditable in Firefox when more than one function step was present in the workflow. This update ensures smooth editing for all steps.
+
+* Fixes issues with the BYO integration process, resolving 504 errors in test endpoint requests and ensuring successful configuration for OAuth client credentials flows.
+
+* Fixes an issue where response steps would not resolve or return data correctly during workflow testing. Now, response steps properly indicate success or failure, ensuring clearer test results.
+</Update>
 <Update label="November 2024" description="v3.11">
 ### 🛠 Improvements
 
