@@ -1,49 +1,66 @@
 ---
-description: Connect to your users' NetSuite ERP systems
+description: "Connect to your users' NetSuite ERP systems"
+title: "NetSuite"
 ---
 
-# NetSuite
-
-## Setup Guide
+# Setup Guide
 
 ### **Select an authentication strategy for your users**
 
-Selecting an authentication strategy is the first step to building a NetSuite integration on Paragon. Paragon supports two methods for authenticating against your users' NetSuite systems, **Authorization Code grant** and **Client Credentials**. Your selection will affect the user experience of your connected users.
+Selecting an authentication strategy is the first step to building a NetSuite integration on Paragon. Paragon supports three methods for authenticating against your users' NetSuite systems, **Authorization Code, Client Credentials, and Client Credentials with User Certificates**. Your selection will affect the user experience of your connected users.
 
-*   **Authorization Code –** Paragon will use the **Client ID** and **Client Secret** from the NetSuite app you create to initiate OAuth 2.0 flow on behalf of your connecting users.
+* **Authorization Code –** Paragon will use the **Client ID** and **Client Secret** from the NetSuite app you create to initiate OAuth 2.0 flow on behalf of your connecting users.&#x20;
 
+![](cp_auth.png)
 
 * **Client Credentials –** your connecting users are required to create their own client apps within their NetSuite instances.
 
+![](cp_client.png)
+
+* **Client Credentials with User Certificates –** your connecting users are required to create their own client app and generate a certificate to authenticate requests.
 
 We recommend developers use the **Authorization Code** method to optimize for a more seamless user experience for your connecting users.&#x20;
+
+**How do I choose what authentication**
+
+| Authentication Type                      | Connecting User Experience | **Authentication Lifetime**                | Developer Inputs Required                               |
+| ---------------------------------------- | :------------------------- | :----------------------------------------- | :------------------------------------------------------ |
+| Authorization Code                       | Minimal setup              | Requires user to reconnect every 7-14 days | Provide App Credentials                                 |
+| Client Credentials                       | Some user involvement      |                                            | User provides app credentials                           |
+| Client Credentials with User Certificate | High user involvement      | Authenticated for 2 years                  | User provides app credentials and generates certificate |
 
 ### **Enabling the OAuth 2.0 feature in your NetSuite test instance**
 
 Enabling the OAuth 2.0 and SuiteScript features in NetSuite are the first steps for configuring your NetSuite sandbox instance to Paragon Connect.
 
 1. Navigate to **Setup > Company > Enable Features** then select the **SuiteCloud** tab.
+
 2. Check the boxes for enabling **Client SuiteScript**, **Server SuiteScript**, and **OAuth 2.0**.
+
 3. Click **Save.**&#x20;
 
 ### **Creating a NetSuite OAuth application**
 
 Now you can create your NetSuite app credentials in your NetSuite instance's Integration Management Settings. This is found under **Setup > Integration > Manage Integrations > New**.
 
-1. Add a **Name**, a **Description**, and click to change the **State** dropdown to _**Enabled**_.
-2. Enable the _**Token-Based Authentication**_ checkbox, _**Authorization Code Grant**,_ and _**Public Client**_ options under **Authorization**.
-3. Add the Paragon _**Redirect URL**_
+1. Add a **Name**, a **Description**, and click to change the **State** dropdown to ***Enabled***.
+
+2. Enable the ***Token-Based Authentication*** checkbox, ***Authorization Code Grant**,* and ***Public Client*** options under **Authorization**.
+
+3. Add the Paragon ***Redirect URL***
 
 ```
 https://passport.useparagon.com/oauth
 ```
 
-4. Select the three scopes: `RESTLETS`, `REST WEB SERVICES`, and `SUITEANALYTICS`.
+1. Select the three scopes: `RESTLETS`, `REST WEB SERVICES`, and `SUITEANALYTICS`.
 
 You'll need the following information from the NetSuite application registration to set up your NetSuite App with Paragon Connect:
 
 * Consumer Key
+
 * Consumer Secret
+
 * Scopes Requested
 
 ### Add your NetSuite app to Paragon
@@ -51,5 +68,7 @@ You'll need the following information from the NetSuite application registration
 In the Paragon Dashboard under **Integrations > Connected Integrations >** **NetSuite** **>** **Settings**, fill out your credentials from your NetSuite app in their respective sections:
 
 * **Client ID:** Found under Setup > Integration > Manage Integrations on your NetSuite App page.
+
 * **Client Secret:** Found under Setup > Integration > Manage Integrations on your NetSuite App page.
+
 * **Permissions:** Select the scopes you've requested for your application.
