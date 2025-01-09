@@ -1,0 +1,159 @@
+---
+title: "Custom Integrations"
+description: "Create your own custom integration with any app provider on Paragon."
+---
+
+## Overview
+
+<Check>
+  ✨ Custom Integrations are included in all **paid plans**. [**Contact us**](https://calendly.com/useparagon/paragon-demo) to schedule a demo of Custom Integrations or upgrade your account.
+</Check>
+
+Custom Integrations allow you to build your own custom integration with any app provider on Paragon, even if it's not natively supported by our integration catalog.
+
+Similar to natively supported integrations on Paragon, Custom Integrations provide the following features:
+
+* **Embedded Connect Portal** for your customers to activate and configure the integration in your app.
+
+* **Fully managed authentication** with OAuth 2.0 or API Keys.
+
+* **Visual workflow editor** for creating custom integration logic.
+
+* **Access to any API methods** provided by the application's API.
+
+## Building a Custom Integration
+
+### Prerequisites
+
+Before building a Custom Integration, ensure the following:
+
+* The app provider must have a public API.
+
+* You have access to the app provider's API documentation.
+
+* If the app provider uses OAuth authentication, create a developer account and application.
+
+* You have a Paragon account with a **paid plan**.
+
+To begin, click the **build your own custom integration** button in the integration catalog. Complete the following steps:
+
+### Step 1: Basic Info
+
+Provide basic information about the app provider for display in the Connect Portal:
+
+* **Name**: A short name for the app provider.
+
+* **Description**: A brief description of the app provider.
+
+* **App Icon**: Only SVG formats are accepted.
+
+* **Accent Color**: Brand color used for portal accents.
+
+<Figure src="../.gitbook/assets/Basic info for custom integrations on Paragon.png" alt="Basic Info Step" />
+
+### Step 2: Authentication Method
+
+Choose an authentication method based on the app provider's API documentation:
+
+* **OAuth 2.0**: For user-based account authentication (e.g., Salesforce).
+
+* **API Keys**: For token-based authorization from the app provider.
+
+<Figure src="../.gitbook/assets/Choosing an authentication method for a custom integration on Paragon.png" alt="Authentication Method Step" />
+
+### Step 3: Authentication Setup
+
+#### OAuth 2.0
+
+Configure OAuth settings by providing:
+
+* Authorization URL
+
+* Access Token URL
+
+* Client ID
+
+* Client Secret
+
+* Scopes Requested
+
+<Figure src="../.gitbook/assets/Setting up the OAuth flow for a custom integration in Paragon Connect-1.png" alt="OAuth Setup" />
+
+#### API Keys
+
+Add input fields for API keys or user details as required by the app provider.
+
+<Figure src="../.gitbook/assets/Setting up the API Key flow for a custom integration in Paragon Connect.png" alt="API Key Setup" />
+
+#### OAuth Client Credentials
+
+Define the Access Token URL for exchanging authorization codes for access tokens.
+
+<Figure src="../.gitbook/assets/Using Client OAuth Credentials when creating integrations in Paragon Connect.png" alt="Client Credentials Setup" />
+
+Press `Enable` in the Connect Portal preview to validate the connection.
+
+### Step 4: API Setup
+
+Configure API settings:
+
+* **API Base URL**: Base URL for API requests.
+
+* **API Authorization**: Authentication details for API requests.
+
+* **Test Endpoint URL**: Endpoint to validate user credentials via a `GET` request.
+
+<Figure src="../.gitbook/assets/API Setup for custom integrations on Paragon Connect.png" alt="API Setup" />
+
+Test the setup and press `Finish` to save the configuration.
+
+## Using Custom Integrations
+
+### Workflow Builder
+
+Make API requests to your app provider directly from the Workflow Builder. Paragon automatically includes `Authorization` details.
+
+<Callout type="info" title="Info">
+  Paragon includes the `Authorization` details configured in Step 3 in every request.
+</Callout>
+
+Learn more in the [Building Workflows](../workflows/building-workflows.md) and [Requests](../workflows/requests/) guides.
+
+### Paragon SDK
+
+Access the app provider's endpoints using the SDK. Prefix the app provider name with `custom.` (e.g., `custom.github`).
+
+```javascript
+// Example: JavaScript SDK
+paragon.authenticate(<ProjectId>, <UserToken>);
+
+await paragon.request("custom.<app_provider_name>", "<api_endpoint>", {
+  method: "GET",
+});
+```
+
+### Connect API
+
+To issue requests from your server:
+
+```http
+POST https://proxy.useparagon.com/projects/<Paragon Project ID>/sdk/proxy
+  /custom/<Integration ID>/<API path>
+
+Authorization: Bearer <Paragon User Token>
+Content-Type: application/json
+```
+
+**Example:**
+
+```http
+POST https://proxy.useparagon.com/projects/19d...012/sdk/proxy
+    /fb243b75-35e7-46b3-ba6c-967ccebeb449/notifications
+
+Authorization: Bearer eyJ...
+Content-Type: application/json
+
+{ 
+  "title": "This notification was created from your app"
+}
+```
