@@ -40,6 +40,10 @@
     {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "Integrations",
+      "url": "integrations"
     }
   ],
   "anchors": [
