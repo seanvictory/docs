@@ -108,6 +108,12 @@
       ]
     },
     {
+      "group": "Resources",
+      "pages": [
+        resources/custom-integrations
+      ]
+    }
+    {
       "group": "Billing",
       "pages": [
         "billing/connected-users",
