@@ -114,7 +114,7 @@
     {
       "group": "Resources",
       "pages": [
-        resources/custom-integrations
+        "resources/custom-integrations"
       ]
     },
     {
