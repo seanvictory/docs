@@ -44,6 +44,10 @@
     {
       "name": "Integrations",
       "url": "integrations"
+    },
+    {
+      "name": "Changelog",
+      "url": "changelog"
     }
   ],
   "anchors": [
