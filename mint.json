@@ -140,6 +140,12 @@
       ]
     },
     {
+      "group": "Integrations",
+      "pages": [
+        "integrations/netsuite"
+      ]
+    },
+    {
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/get",
