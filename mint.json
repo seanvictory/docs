@@ -137,6 +137,7 @@
     {
       "group": "Integrations",
       "pages": [
+        "integrations/gong",
         "integrations/netsuite"
       ]
     },
