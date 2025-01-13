@@ -47,7 +47,7 @@
     },
     {
       "name": "Changelog",
-      "url": "changelog"
+      "url:" "changlog"
     }
   ],
   "anchors": [
@@ -60,11 +60,6 @@
       "name": "Status",
       "icon": "gear",
       "url": "https://status.useparagon.com/"
-    },
-    {
-      "name": "Changelog",
-      "icon": "bolt",
-      "url": "changelog"
     },
     {
       "name": "Hosted Demo Enviorment",
