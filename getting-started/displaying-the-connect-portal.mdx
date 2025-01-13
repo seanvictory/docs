@@ -7,15 +7,9 @@ Once an integration has been added to the Paragon dashboard, you can now display
 
 ## Activating the Integration
 
-
 You'll need to mark your integration as `active` for it to display to your end users. To do this, just click the "Inactive" button in the top-right corner and press "Activate".
 
-  <Frame>
-    <img src="/.gitbook/assets/Adding-an-Integration-from-the-Integration-Catalog-in-Paragon-Connect.png"/>
-  </Frame>
-
 ## Displaying the Connect Portal in your app
-
 
 [`.authenticate`](/api/api-reference#authenticate-projectid-string-usertoken-string) should be called at the beginning of your application's lifecycle in all cases. This is to make sure that the `userToken` is always as fresh as possible, with respect to your user's existing session on your own site. You may reference [Installing the Connect SDK](/getting-started/installing-the-connect-sdk#setup) for a detailed explanation on how to use [`.authenticate`](/api/api-reference#authenticate-projectid-string-usertoken-string).
 
@@ -38,9 +32,9 @@ Once [`.authenticate`](/api/api-reference#authenticate-projectid-string-usertoke
 ```js
 paragon.connect("salesforce");
 ```
-You _must_ have an integration configured of this `integrationType` for the Portal to appear. Otherwise, this function does nothing.
 
-  <Frame>
-    <img src="/.gitbook/assets/Connect-Portal-in-an-application-(1).png"/>
-  </Frame>
+You *must* have an integration configured of this `integrationType` for the Portal to appear. Otherwise, this function does nothing.
+
+![](/images/assets/AddingdevelopercredentialstoaSalesforceapplicationinParagonConnect.png)
+
 Once your user connects their third-party app account in the Connect Portal, you can access their app account by creating Workflows or via the [Paragon API](/api/making-api-requests). You can always call [`.getUser`](/api/api-reference#getuser-paragonuser) to retrieve the currently authenticated user and their connected integration state.
